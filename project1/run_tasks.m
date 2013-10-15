@@ -10,6 +10,8 @@ for i = 1:r
     img(x(i,1),x(i,2)) = 1;
 end
 figure;
+title('Task 1: draw line with Bresenham Algorithm',... 
+  'FontWeight','bold')
 imshow(img); % show binary image
 
 %@@@@@@@@@@@@@@@@@ task 2
@@ -29,6 +31,8 @@ img2 = fill(Polygon,point_inside,img2);
 %img2 = fill_boundary(Polygon,point_inside,img2);
 % both methods are recursive: flood based
 figure;
+title('Task 2: draw a polygon and its boundary',... 
+  'FontWeight','bold')
 imshow(img2);
 
 %@@@@@@@@@@@@@@@@@ task 3
@@ -60,4 +64,9 @@ img5(idx14) = 0.4;
 img5(idx08) = 0.4;
 
 figure;
+title('Task 3: color intersection of two polygons',... 
+  'FontWeight','bold')
 imshow(img5);
+
+%@@@@@@@@@@@@@@@@@ task 4
+%@@@@@@@@@@@@@@@@@ 
