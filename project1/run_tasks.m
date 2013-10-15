@@ -76,3 +76,28 @@ figure;
 plot(hull(:,1),hull(:,2),points(:,1),points(:,2),'bo')
 title('Task 4: Draw a convex hull',... 
   'FontWeight','bold')
+
+
+%@@@@@@@@@@@@@@@@@ extra credit
+%@@@@@@@@@@@@@@@@@ 
+Polygon3 = [ 3 20 40 3 3 ; 3 3 20 40 3]';
+point_inside3 = [ 4 4];
+line_segment = [10, 10, 60, 50]; 
+[l(:,1) l(:,2)] = bresenham(line_segment);
+ImageWidth = max([Polygon1(:,1); line_segment'])+10;
+ImageHeight = max([Polygon1(:,2); line_segment'])+10;
+img6 = zeros(ImageHeight,ImageWidth);
+img6 = fill(Polygon1,point_inside1,img6);
+[r c] = size(l);
+for i=1:r
+    img6(l(i,1),l(i,2)) = img6(l(i,1),l(i,2)) + 0.7; % 1.7: line inside polgy 0.7: outside. 1.1 on board
+end
+idx17 = find(img6==1.7);
+idx07 = find(img6==0.7);
+idx11 = find(img6==1.1);
+img6(idx17) = 0.3; % highlight the part inside
+img6(idx07) = 0;
+img6(idx11) = 0.4;
+figure;imshow(img6);
+title('Extra-Credit: line clipping',... 
+  'FontWeight','bold')
