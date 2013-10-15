@@ -9,10 +9,10 @@ img = zeros(60,60); % output
 for i = 1:r
     img(x(i,1),x(i,2)) = 1;
 end
-figure;
+figure;imshow(img); % show binary image
 title('Task 1: draw line with Bresenham Algorithm',... 
   'FontWeight','bold')
-imshow(img); % show binary image
+
 
 %@@@@@@@@@@@@@@@@@ task 2
 %@@@@@@@@@@@@@@@@@ 
@@ -30,10 +30,10 @@ img2 = fill(Polygon,point_inside,img2);
 % draw boundaries
 %img2 = fill_boundary(Polygon,point_inside,img2);
 % both methods are recursive: flood based
-figure;
+figure;imshow(img2);
 title('Task 2: draw a polygon and its boundary',... 
   'FontWeight','bold')
-imshow(img2);
+
 
 %@@@@@@@@@@@@@@@@@ task 3
 %@@@@@@@@@@@@@@@@@ 
@@ -63,10 +63,16 @@ img5(idx2) = 0.3; % COLOR the polygon intersection!!!
 img5(idx14) = 0.4;
 img5(idx08) = 0.4;
 
-figure;
+figure;imshow(img5);
 title('Task 3: color intersection of two polygons',... 
   'FontWeight','bold')
-imshow(img5);
+
 
 %@@@@@@@@@@@@@@@@@ task 4
 %@@@@@@@@@@@@@@@@@ 
+points = [ 20 60 70 20 20 4 5 6 7 8 9 1 44; 20 20 70 60 20 4 5 6 7 8 9 31 8]';
+[hull idx] = convexHull(points);
+figure;
+plot(hull(:,1),hull(:,2),points(:,1),points(:,2),'bo')
+title('Task 4: Draw a convex hull',... 
+  'FontWeight','bold')
