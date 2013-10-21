@@ -70,8 +70,9 @@ title('Task 3: color intersection of two polygons',...
 
 %@@@@@@@@@@@@@@@@@ task 4
 %@@@@@@@@@@@@@@@@@ 
-points = [ 20 60 70 20 20 4 5 6 7 8 9 1 44; 20 20 70 60 20 4 5 6 7 8 9 31 8]';
-[hull idx] = convexHull(points);
+points = [10,11;20,23;30,31;40,60;55,23;56,24;81,11;22,7];
+%%%% CLOCKWISE ORDER!!!!
+[hull] = convexHull(points);
 figure;
 plot(hull(:,1),hull(:,2),points(:,1),points(:,2),'bo')
 title('Task 4: Draw a convex hull',... 

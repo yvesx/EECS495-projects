@@ -1,5 +1,5 @@
 function [convex] = convexHull(points)
-%%%%
+%%%% CLOCKWISE ORDER!!!!
 [n,~] = size(points);
 
 convex = [];
