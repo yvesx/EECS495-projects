@@ -2,10 +2,10 @@
 # index benchmark spatial data files.
 # variations in row/instance, column/dimension, integer/float, distribution
 # python index.py -k 10 -e 0  -p 2 -q int.100.10.npy        -c int.1k.10.npy
-# python index.py -k 10 -e 0  -p 1 -q float.100.1k.npy      -c float.100k.1k.npy
-# python index.py -k 10 -e 0  -p 2 -q gaussian.100.100.npy  -c gaussian.1m.100.npy
+# python index.py -k 10 -e 0  -p 2 -q float.100.1k.npy      -c float.100k.1k.npy
+# python index.py -k 10 -e 0  -p 1 -q gaussian.100.100.npy  -c gaussian.1m.100.npy
 # python index.py -k 10 -e 0  -p 1 -q int.100.10k.npy       -c int.1k.10k.npy
-# python index.py -k 10 -e 10 -p 2 -q gaussian.100.100.npy  -c gaussian.1m.100.npy
+# python index.py -k 10 -e 10 -p 1 -q gaussian.100.100.npy  -c gaussian.1m.100.npy
 # python index.py -k 10 -e 10 -p 1 -q int.100.10k.npy       -c int.1k.10k.npy
 ################################################################################
 # Copyright (c) 2013 yves xie
