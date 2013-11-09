@@ -48,9 +48,9 @@ if __name__ == '__main__':
     parser.add_option("-c", "--corpus", dest="corpus", help="corpus")
 
     (options, args) = parser.parse_args()
-    corpus = np.load(options.corpus)
+    corpus = np.load(options.corpus,mmap_mode='r')
     cr,cc = corpus.shape
-    queries = np.load(options.query)
+    queries = np.load(options.query,mmap_mode='r')
     qr,qc = queries.shape
     tic= time.clock()#tic
     kdtree = spatial.KDTree(corpus,leafsize=10)
