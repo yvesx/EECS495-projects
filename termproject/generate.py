@@ -3,8 +3,8 @@
 # variations in row/instance, column/dimension, integer/float, distribution
 # python generate.py -r 1000    -c 100        -o int.1k.10.npy
 # python generate.py -r 100000  -c 1000    -f -o float.100k.1k.npy
-# python generate.py -r 1000000 -c 10000   -g -o gaussian.1m.1k.npy
-# python generate.py -r 1000    -c 1000000    -o int.1k.1m.npy
+# python generate.py -r 1000000 -c 100     -g -o gaussian.1m.100.npy
+# python generate.py -r 1000    -c 10000      -o int.1k.10k.npy
 ################################################################################
 # Copyright (c) 2013 yves xie
 #
@@ -28,6 +28,13 @@
 ################################################################################
 
 import numpy as np
+import optparse
+import os
+import random
+import sys
+import types
+
+VERSION = "0.0.1"
 
 def gen_int(r,c,rang):
 	# random ints from 0 to rang-1
