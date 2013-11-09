@@ -70,15 +70,15 @@ if __name__ == '__main__':
     if options.gaussian:
     	# generate gaussian
         arr = gen_gaussian(options.r,options.c,4096)
-        arr.astype('float32').tofile(options.output)
+        np.save(options.output,arr.astype('float32'))
     elif options.float:
         #generate uniform float data
         arr = gen_float(options.r,options.c,4096)
-        arr.astype('float32').tofile(options.output)
+        np.save(options.output,arr.astype('float32'))
     else:
         #generate integer data
         arr = gen_int(options.r,options.c,4096)
-        arr.astype('uint16').tofile(options.output)
+        np.save(options.output,arr.astype('uint16'))
 
 
 
