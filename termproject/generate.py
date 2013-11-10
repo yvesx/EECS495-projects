@@ -1,16 +1,6 @@
 #!/usr/bin/env python
 # generate benchmark spatial data files.
 # variations in row/instance, column/dimension, integer/float, distribution
-# generate corpora
-# python generate.py -r 1000    -c 100        -o int.1k.10.npy
-# python generate.py -r 100000  -c 1000    -f -o float.100k.1k.npy
-# python generate.py -r 1000000 -c 100     -g -o gaussian.1m.100.npy
-# python generate.py -r 1000    -c 10000      -o int.1k.10k.npy
-# generate queries
-# python generate.py -r 100 -c 100        -o int.100.10.npy
-# python generate.py -r 100 -c 1000    -f -o float.100.1k.npy
-# python generate.py -r 100 -c 100     -g -o gaussian.100.100.npy
-# python generate.py -r 100 -c 10000      -o int.100.10k.npy
 ################################################################################
 # Copyright (c) 2013 yves xie
 #
@@ -48,7 +38,7 @@ def gen_int(r,c,rang):
 
 def gen_float(r,c,rang):
 	# random floats from [0 to rang)
-	return rang * np.random.random_sample(size=(3, 2))
+	return rang * np.random.random_sample(size=(r, c))
 
 def gen_gaussian(r,c,rang):
 	# random floats from multivariate gaussian. no fixed range
@@ -78,7 +68,7 @@ if __name__ == '__main__':
     else:
         #generate integer data
         arr = gen_int(options.r,options.c,4096)
-        np.save(options.output,arr.astype('uint16'))
+        np.save(options.output,arr.astype('uint64'))
 
 
 
