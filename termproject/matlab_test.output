@@ -1,0 +1,75 @@
+Scaling all distances by 1.13103 for easier probability calcs.
+Simple Approximation:
+	For 1000 points of data use: w=1.12911 and get 0.265346 hits per bin and 0.743306 nn.
+		K=5 L=3 cost is 18.6007
+Expected statistics: for simple approximation
+	Assuming K=5, L=3, hammingR=1
+	Probability of finding NN for L=1: 0.226902
+	Probability of finding ANY for L=1: 0.0013154
+	Probability of finding NN for L=3: 0.537934
+	Probability of finding ANY for L=3: 0.00394102
+	Expected number of hits per query: 3.94102
+Exact Optimization:
+	For 1000 points of data use: w=3.33948 and get 0.598287 hits per bin and 0.912879 nn.
+		K=19 L=4 cost is 10.8129
+Expected statistics for optimal solution:
+	Assuming K=19, L=4, hammingR=1
+	p_nn(w) is 0.912879
+	p_any(w) is 0.598287
+	Probability of finding NN for L=1: 0.320816
+	Probability of finding ANY for L=1: 0.000546418
+	Probability of finding NN for L=4: 0.787211
+	Probability of finding ANY for L=4: 0.00218388
+	Expected number of hits per query: 2.41434
+Scaling all distances by 1.13103 for easier probability calcs.
+Simple Approximation:
+	For 1000 points of data use: w=1.12911 and get 0.265346 hits per bin and 0.743306 nn.
+		K=5 L=3 cost is 18.6007
+Expected statistics: for simple approximation
+	Assuming K=5, L=3, hammingR=1
+	Probability of finding NN for L=1: 0.226902
+	Probability of finding ANY for L=1: 0.0013154
+	Probability of finding NN for L=3: 0.537934
+	Probability of finding ANY for L=3: 0.00394102
+	Expected number of hits per query: 3.94102
+Exact Optimization:
+	For 1000 points of data use: w=3.33948 and get 0.598287 hits per bin and 0.912879 nn.
+		K=19 L=4 cost is 10.8129
+Expected statistics for optimal solution:
+	Assuming K=19, L=4, hammingR=1
+	p_nn(w) is 0.912879
+	p_any(w) is 0.598287
+	Probability of finding NN for L=1: 0.320816
+	Probability of finding ANY for L=1: 0.000546418
+	Probability of finding NN for L=4: 0.787211
+	Probability of finding ANY for L=4: 0.00218388
+	Expected number of hits per query: 2.41434
+Scaling all distances by 1.13103 for easier probability calcs.
+Simple Approximation:
+	For 1000 points of data use: w=1.12911 and get 0.265346 hits per bin and 0.743306 nn.
+		K=5 L=3 cost is 18.6007
+Expected statistics: for simple approximation
+	Assuming K=5, L=3, hammingR=1
+	Probability of finding NN for L=1: 0.226902
+	Probability of finding ANY for L=1: 0.0013154
+	Probability of finding NN for L=3: 0.537934
+	Probability of finding ANY for L=3: 0.00394102
+	Expected number of hits per query: 3.94102
+Exact Optimization:
+	For 1000 points of data use: w=3.33948 and get 0.598287 hits per bin and 0.912879 nn.
+		K=19 L=4 cost is 10.8129
+Expected statistics for optimal solution:
+	Assuming K=19, L=4, hammingR=1
+	p_nn(w) is 0.912879
+	p_any(w) is 0.598287
+	Probability of finding NN for L=1: 0.320816
+	Probability of finding ANY for L=1: 0.000546418
+	Probability of finding NN for L=4: 0.787211
+	Probability of finding ANY for L=4: 0.00218388
+	Expected number of hits per query: 2.41434
+Multiprobe R         1          1          1 
+Exact W:       3.33948    3.33948    3.33948 
+Exact k:            19         19         19 
+Exact L:             4          4          4 
+Exact Cost:    10.8129    10.8129    10.8129 
+>> 
