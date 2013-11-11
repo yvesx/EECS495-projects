@@ -34,6 +34,7 @@ import time
 VERSION = "0.0.1"
 # for different volumes of objects, K,L values are different.
 # w isn't exactly 4 but the SIGMOD2012 LSH based on dynamic collision counting suggests 4
+# what should be w if the values are between [0,4096]
 LSH_OPTIMAL_PARAMETERS = {
     100:{"K":14,"L":3,"w":4},
     1000:{"K":19,"L":4,"w":4},

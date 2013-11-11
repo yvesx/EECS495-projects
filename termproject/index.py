@@ -32,7 +32,7 @@ import types
 import time
 
 VERSION = "0.0.1"
-
+# HOW do i choose best leafsize??
 if __name__ == '__main__':
     parser = optparse.OptionParser(usage="%prog [options]", version="%%prog %s"%VERSION)
     parser.add_option("-k", "--topK", dest="k", type="int", help="topK")
