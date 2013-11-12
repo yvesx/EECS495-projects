@@ -30,7 +30,7 @@ def mapfn(k, v):
 	kdtree.leafnode  = kdtree.KDTree.leafnode
 	kdtree.innernode = kdtree.KDTree.innernode
 	#k is 0, ..., M
-	#v is serialzied KDtrees 
+	#v is serialzied KDtree
 	import kdt_config # import has to be under function. cf. mincemeat README.
 	import cPickle
 	ikdt = cPickle.loads(v)
@@ -44,7 +44,7 @@ def reducefn(k, vs):
 	return allNearestNeighbors
 import kdt_config
 s = mincemeat.Server()
-s.datasource = OUTPUT FROM ikdt_index JOB # not queries, but KDTrees are NOT datasource.
+s.datasource = kdt_config.ikdt_index # not queries, but KDTrees are NOT datasource.
 s.mapfn = mapfn
 s.reducefn = reducefn
 
