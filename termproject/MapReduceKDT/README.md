@@ -1,4 +1,4 @@
-Kloud Kd Tree (KKdT)
+Kloud Kd Tree (KdKdT)
 =================================
 
 Introduction

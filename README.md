@@ -1,4 +1,4 @@
 EECS495-projects
 ================
 
-* KKd-tree (Kloud Kd-tree)
+* KdKd Tree (Kloud Kd Tree)
