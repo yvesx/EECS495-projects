@@ -25,19 +25,19 @@
 import mincemeat
 
 def mapfn(k, v):
-	import kdt_config # import has to be under function. cf. mincemeat README.
+    import kdt_config # import has to be under function. cf. mincemeat README.
     yield k%kdt_config.M , v
 
 def reducefn(k, vs):
-	from scipy.spatial import kdtree
-	import cPickle
-	# patch module-level attribute to enable pickle to work
-	kdtree.node      = kdtree.KDTree.node
-	kdtree.leafnode  = kdtree.KDTree.leafnode
-	kdtree.innernode = kdtree.KDTree.innernode
+    from scipy.spatial import kdtree
+    import cPickle
+    # patch module-level attribute to enable pickle to work
+    kdtree.node      = kdtree.KDTree.node
+    kdtree.leafnode  = kdtree.KDTree.leafnode
+    kdtree.innernode = kdtree.KDTree.innernode
 
-	kdtree = kdtree.KDTree(vs,leafsize=10)
-	raw = cPickle.dumps(kdtree) # string
+    kdtree = kdtree.KDTree(vs,leafsize=10)
+    raw = cPickle.dumps(kdtree) # string
     return raw
 
 import kdt_config

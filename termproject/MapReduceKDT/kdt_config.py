@@ -30,4 +30,3 @@ corpus = dict(enumerate(data))
 # {0: (0, 2), 1: (0, 3), 2: (0, 4), 3: (0, 5), 4: (0, 6), 5: (0, 7), 6: (1, 2), 7: (1, 3), 8: (1, 4), 9: (1, 5), 10: (1, 6), 11: (1, 7), 12: (2, 2), 13: (2, 3), 14: (2, 4), 15: (2, 5), 16: (2, 6), 17: (2, 7), 18: (3, 2), 19: (3, 3), 20: (3, 4), 21: (3, 5), 22: (3, 6), 23: (3, 7), 24: (4, 2), 25: (4, 3), 26: (4, 4), 27: (4, 5), 28: (4, 6), 29: (4, 7)}
 queries = [[3.4, 4.1]]
 M = 10 # number of machines, logically. actually the map reduce can be performed on any #machines<=M
-ikdt_index = "read string from ./ikdt_index_output"

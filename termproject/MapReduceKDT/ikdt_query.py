@@ -25,26 +25,27 @@
 import mincemeat
 
 def mapfn(k, v):
-	from scipy.spatial import kdtree
-	kdtree.node      = kdtree.KDTree.node
-	kdtree.leafnode  = kdtree.KDTree.leafnode
-	kdtree.innernode = kdtree.KDTree.innernode
-	#k is 0, ..., M
-	#v is serialzied KDtree
-	import kdt_config # import has to be under function. cf. mincemeat README.
-	import cPickle
-	ikdt = cPickle.loads(v)
-	for i , q in enumerate(kdt_config.queries):
-		nearestNeighbors = ikdt.query(q)
-    	yield i , nearestNeighbors
+    from scipy.spatial import kdtree
+    kdtree.node      = kdtree.KDTree.node
+    kdtree.leafnode  = kdtree.KDTree.leafnode
+    kdtree.innernode = kdtree.KDTree.innernode
+    #k is 0, ..., M
+    #v is serialzied KDtree
+    import kdt_config # import has to be under function. cf. mincemeat README.
+    import cPickle
+    ikdt = cPickle.loads(v)
+    for i , q in enumerate(kdt_config.queries):
+        nearestNeighbors = ikdt.query(q)
+        yield i , nearestNeighbors
 
 def reducefn(k, vs):
-	allNearestNeighbors = [j for i in vs for j in i]
-	# add sorting and cropping here if necessary.
-	return allNearestNeighbors
+    allNearestNeighbors = [j for i in vs for j in i]
+    # add sorting and cropping here if necessary.
+    return allNearestNeighbors
 import kdt_config
 s = mincemeat.Server()
-s.datasource = kdt_config.ikdt_index # not queries, but KDTrees are NOT datasource.
+import ikdt_index_output
+s.datasource = ikdt_index_output.tree # not queries, but KDTrees are NOT datasource.
 s.mapfn = mapfn
 s.reducefn = reducefn
 
