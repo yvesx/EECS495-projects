@@ -44,10 +44,10 @@ def reducefn(k, vs):
     return allNearestNeighbors
 import kdt_config
 s = mincemeat.Server()
-import ikdt_index_output
-s.datasource = ikdt_index_output.tree # not queries, but KDTrees are NOT datasource.
+import dkdt_index_output
+s.datasource = dkdt_index_output.tree # not queries, but KDTrees are NOT datasource.
 s.mapfn = mapfn
 s.reducefn = reducefn
 
-results = s.run_server(password="changeme")
+results = s.run_server(password="ikdt")
 print results

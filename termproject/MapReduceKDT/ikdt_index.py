@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# building independent, parallel kd trees on map reduce
+# building feature interleaver for distributed kdkd tree.
 ################################################################################
 # Copyright (c) 2013 yves xie
 #
@@ -46,5 +46,5 @@ s.datasource = kdt_config.corpus
 s.mapfn = mapfn
 s.reducefn = reducefn
 
-results = s.run_server(password="changeme")
+results = s.run_server(password="ikdt")
 print results
