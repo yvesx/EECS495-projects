@@ -39,13 +39,13 @@ def mapfn(k, v):
         yield i , nearestNeighbors
 
 def reducefn(k, vs):
-    allNearestNeighbors = [j for i in vs for j in i]
+    allNearestNeighbors = [j for i in vs for j in i] # basically flattern the list
     # add sorting and cropping here if necessary.
     return allNearestNeighbors
 import kdt_config
 s = mincemeat.Server()
-import dkdt_index_output
-s.datasource = dkdt_index_output.tree # not queries, but KDTrees are NOT datasource.
+import ikdt_index_output
+s.datasource = ikdt_index_output.tree # not queries, but KDTrees are NOT datasource.
 s.mapfn = mapfn
 s.reducefn = reducefn
 

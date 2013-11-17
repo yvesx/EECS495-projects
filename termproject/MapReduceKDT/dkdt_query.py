@@ -34,7 +34,9 @@ def mapfn(k, v):
     #v is serialzied KDtree
     import kdt_config # import has to be under function. cf. mincemeat README.
     import cPickle
-    ikdt = cPickle.loads(v)
+    dkdt = cPickle.loads(v)
+    from scipy.spatial.distance import hamming
+    import numpy as np
     for i , q in enumerate(kdt_config.queries):
         sims = [( hamming(np.asarray(chunk),np.asarray(q)) , i ) for i,chunk in enumerate(chunk_ends)]
         sims = sorted(sims)
@@ -42,19 +44,19 @@ def mapfn(k, v):
         sims = [str(s[1]) for s in sims]
         if (str(k) in sims): # search if current tree is attached to a similar top leaf
             # check is ith kdtree is close to query q.
-            nearestNeighbors = ikdt.query(q)
+            nearestNeighbors = dkdt.query(q)
             yield i , nearestNeighbors
 
 def reducefn(k, vs):
-    allNearestNeighbors = [j for i in vs for j in i]
+    allNearestNeighbors = [j for i in vs for j in i] # basically flattern the list
     # add sorting and cropping here if necessary.
     return allNearestNeighbors
 import kdt_config
 s = mincemeat.Server()
-import ikdt_index_output
-s.datasource = ikdt_index_output.tree # not queries, but KDTrees are NOT datasource.
+import dkdt_index_output
+s.datasource = dkdt_index_output.tree # not queries, but KDTrees are NOT datasource.
 s.mapfn = mapfn
 s.reducefn = reducefn
 
-results = s.run_server(password="ikdt")
+results = s.run_server(password="dkdt")
 print results

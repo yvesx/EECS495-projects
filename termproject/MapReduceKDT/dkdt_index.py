@@ -31,7 +31,7 @@ def mapfn(k, v):
     import numpy as np
     sims = [( hamming(np.asarray(chunk),np.asarray(v)) , i ) for i,chunk in enumerate(chunk_ends)]
     sims = sorted(sims)
-    return sims[-1][1],sims[-1][0]
+    yield sims[-1][1],v # yield one pair so each record is indexed at only one leaf tree.
 
 
 def reducefn(k, vs):
@@ -47,11 +47,10 @@ def reducefn(k, vs):
     return raw
 
 import kdt_config
-import dkdt_feature
-
 s = mincemeat.Server()
 s.datasource = kdt_config.corpus
 s.mapfn = mapfn
 s.reducefn = reducefn
+
 results = s.run_server(password="dkdt")
 print results
