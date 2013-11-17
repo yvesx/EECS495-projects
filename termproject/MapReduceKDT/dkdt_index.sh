@@ -10,11 +10,7 @@ printf "chunk_ends = " | cat - $OUTFTR > /tmp/tempfile && mv /tmp/tempfile $OUTF
 python dkdt_index.py > $OUTIDX &
 SERVER_PID=$!
 sleep 1
-python mincemeat.py -p dkdt -P 11230 localhost &
-python mincemeat.py -p dkdt -P 11231 localhost &
-python mincemeat.py -p dkdt -P 11232 localhost &
-python mincemeat.py -p dkdt -P 11233 localhost &
-python mincemeat.py -p dkdt -P 11234 localhost &
+python mincemeat.py -p dkdt localhost
 sleep 1
 kill $! 2>/dev/null
 printf "tree = " | cat - $OUTIDX > /tmp/tempfile && mv /tmp/tempfile $OUTIDX; 
