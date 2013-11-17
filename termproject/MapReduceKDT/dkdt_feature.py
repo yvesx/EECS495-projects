@@ -23,15 +23,25 @@
 ################################################################################
 
 
-def getTopTreeLeaves():
+def getTopTreeLeaves(opt=1):
     import random
     import kdt_config
-    sample_size = min(kdt_config.dkdt_feature_samples,len(kdt_config.corpus))
-    datasource = sorted(random.sample(kdt_config.corpus,sample_size)) # building feature interleaving by samples
+    sample_size = min(kdt_config.dkdt_feature_samples,len(kdt_config.corpus.values()))
+    datasource = random.sample(kdt_config.corpus.values(),sample_size) # building feature interleaving by samples
 
-    chunks = kdt_config.chunks(datasource,int(len(datasource)/kdt_config.M)+1 )
-    chunk_ends = [x[0] for x in chunks] # only keep the end figure for comparisons
-    return chunk_ends
+    if opt == 0:
+        datasource = sorted(datasource)
+        chunks = kdt_config.chunks(datasource,int(len(datasource)/kdt_config.M)+1 )
+        chunk_ends = [x[0] for x in chunks] # only keep the end figure for comparisons
+        return chunk_ends
+    else:
+        from numpy import array
+        from scipy.cluster.vq import vq, kmeans, whiten
+        datasource = array(datasource)
+        clusters,_ = kmeans(datasource , kdt_config.M)
+        return list(map(tuple,clusters)) # returns a list of tuples
+
+
     #
     #
     # option 2 is to put them into M clusters.
